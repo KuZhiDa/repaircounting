@@ -28,10 +28,9 @@ STATICFILES_DIRS = [
 SECRET_KEY = 'django-insecure-!gud5%at%d#ymjvq4!rd%vplr586+!3-znn2sx=ubf$_8^$q9f'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['repaircounting.onrender.com', 'repaircounting.ru', 'www.repaircounting.ru']
-
 
 
 # Application definition
@@ -97,8 +96,9 @@ REST_FRAMEWORK = {
 CORS_ALLOWED_ORIGINS = [
      "http://localhost:8000",
     "http://127.0.0.1:8000",
-    "http://localhost:3000",
-    "http://127.0.0.1:3000",
+    "https://repaircounting.onrender.com",
+    "https://repaircounting.ru",
+    "https://www.repaircounting.ru",
 ]
 CORS_ALLOW_CREDENTIALS = True
 
@@ -178,11 +178,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
-# путь к React-статике из папки build
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'build', 'static'),
-]
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
