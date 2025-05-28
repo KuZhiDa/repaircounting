@@ -30,7 +30,7 @@ SECRET_KEY = 'django-insecure-!gud5%at%d#ymjvq4!rd%vplr586+!3-znn2sx=ubf$_8^$q9f
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['repaircounting.ru', 'www.repaircounting.ru', '95.174.98.156']
+ALLOWED_HOSTS = ['repaircounting.onrender.com', 'repaircounting.ru', 'www.repaircounting.ru']
 
 # Application definition
 
