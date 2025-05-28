@@ -30,7 +30,8 @@ SECRET_KEY = 'django-insecure-!gud5%at%d#ymjvq4!rd%vplr586+!3-znn2sx=ubf$_8^$q9f
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['repaircounting.onrender.com', 'repaircounting.ru', 'www.repaircounting.ru']
+
 
 
 # Application definition
@@ -101,7 +102,6 @@ CORS_ALLOWED_ORIGINS = [
 ]
 CORS_ALLOW_CREDENTIALS = True
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1"]  # Добавляем оба хоста
 
 ROOT_URLCONF = 'fullstack_django.urls'
 
