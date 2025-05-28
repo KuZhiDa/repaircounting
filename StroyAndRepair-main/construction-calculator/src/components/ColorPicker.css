@@ -1,0 +1,20 @@
+.color-picker-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+}
+
+.color-picker-value {
+  padding: 8px;
+  text-align: center;
+  color: white;
+  text-shadow: 0 0 2px black;
+  border-radius: 4px;
+  font-family: monospace;
+}
+
+.react-colorful {
+  width: 100% !important;
+  height: 150px !important;
+}

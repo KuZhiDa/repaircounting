@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/static/css/main.242d2080.css",
+    "main.js": "/static/js/main.2d906b41.js",
+    "static/media/tile.jpg": "/static/media/tile.1b2845ca9168d84119fa.jpg",
+    "static/media/brick.jpg": "/static/media/brick.ae4b98f352e7078b8d1c.jpg",
+    "static/media/wood.jpg": "/static/media/wood.d3a95ecfb43d3a62f49a.jpg",
+    "static/media/roof.jpg": "/static/media/roof.c74435583caa27a86d71.jpg",
+    "static/media/concrete.jpg": "/static/media/concrete.cc72a8c2e2145304c061.jpg",
+    "static/media/hero-bg.jpg": "/static/media/hero-bg.525e92669241fbf4358e.jpg",
+    "static/media/cement.jpg": "/static/media/cement.f60ad62008acd29256ef.jpg",
+    "static/media/board.jpg": "/static/media/board.8702c2e3955538b06873.jpg",
+    "index.html": "/index.html",
+    "main.242d2080.css.map": "/static/css/main.242d2080.css.map",
+    "main.2d906b41.js.map": "/static/js/main.2d906b41.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.242d2080.css",
+    "static/js/main.2d906b41.js"
+  ]
+}

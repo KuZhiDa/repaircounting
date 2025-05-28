@@ -1,0 +1,60 @@
+@import '../assets/styles/_variables';
+
+.footer {
+    background: #f8f9fa;
+    padding: 30px 0;
+    margin-top: auto;
+  
+    &__content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+      border-top: 1px solid $border-color;
+    }
+  
+    &__contacts {
+      display: flex;
+      gap: 20px;
+  
+      a {
+        color: $text-color;
+        text-decoration: none;
+  
+        &:hover {
+          color: $primary-color;
+        }
+      }
+    }
+  
+    @media (max-width: 768px) {
+      &__content {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+      }
+    }
+  }
+
+  // Добавить во все компоненты
+@media (max-width: 768px) {
+  .container {
+    padding: 0 20px;
+  }
+  
+  .header__nav {
+    display: none;
+  }
+
+  .hero {
+    padding: 60px 0;
+    
+    h1 {
+      font-size: 32px;
+    }
+  }
+
+  .features__grid {
+    grid-template-columns: 1fr;
+  }
+}

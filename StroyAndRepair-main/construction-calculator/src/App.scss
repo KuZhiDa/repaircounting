@@ -1,0 +1,94 @@
+@use '/src/assets/styles/_variables' as v;
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Стилизация скроллбара */
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: v.$primary-color v.$light;
+}
+
+/* WebKit браузеры */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+  background-color: rgba(v.$light, 0.1);
+}
+
+::-webkit-scrollbar-track {
+  background: linear-gradient(
+    to bottom,
+    rgba(v.$primary-color, 0.08),
+    rgba(v.$primary-color, 0.03)
+  );
+  border-radius: 8px;
+  border: 2px solid rgba(v.$primary-color, 0.1);
+  backdrop-filter: blur(4px);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    45deg,
+    v.$primary-color,
+    darken(v.$primary-color, 8%)
+  );
+  border-radius: 8px;
+  border: 2px solid rgba(v.$light, 0.4);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  &:hover {
+    background: linear-gradient(
+      45deg,
+      darken(v.$primary-color, 5%),
+      darken(v.$primary-color, 12%)
+    );
+    transform: scaleX(1.1);
+  }
+  
+  &:active {
+    background: darken(v.$primary-color, 15%);
+  }
+}
+
+@keyframes scrollbar-fade {
+  0% { opacity: 0; transform: scaleY(0.8); }
+  100% { opacity: 1; transform: scaleY(1); }
+}
+
+::-webkit-scrollbar-thumb {
+  animation: scrollbar-fade 0.6s ease-out;
+}
+
+/* Кастомный скролл для элементов */
+.scroll-container {
+  scrollbar-width: thin;
+  scrollbar-color: v.$primary-color transparent;
+  
+  &::-webkit-scrollbar {
+    width: 6px;
+    background: transparent;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background: rgba(v.$primary-color, 0.6);
+    &:hover {
+      background: v.$primary-color;
+    }
+  }
+}
+
+/* Эффекты при скролле */
+html {
+  scroll-behavior: smooth;
+  scroll-snap-type: y proximity;
+}
+
+section {
+  scroll-snap-align: start;
+  scroll-margin-top: v.$header-height;
+}

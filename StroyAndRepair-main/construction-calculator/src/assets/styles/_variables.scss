@@ -1,0 +1,28 @@
+// Базовые цвета
+$primary-color: #2A5F7F;
+$text-color: #333;
+$border-color: #e0e0e0;
+$light: #F8F9FA;
+$dark: #1D2733;
+$error-color: red;
+$success-color: #28a745;
+
+// Размеры
+$container-width: 1200px;
+$border-radius: 8px;
+$header-height: 90px;
+
+// Производные цвета
+$color-primary-dark: darken($primary-color, 10%);
+
+// Тени
+$shadow-sm: 0 2px 8px rgba($dark, 0.1);
+$shadow-md: 0 4px 12px rgba($dark, 0.15);
+$shadow-lg: 0 8px 24px rgba($dark, 0.2);
+
+// Добавьте это в конец файла
+$glass-effect: (
+  background: rgba(255, 255, 255, 0.1),
+  backdrop-filter: blur(8px),
+  border: 1px solid rgba(255, 255, 255, 0.2)
+);
