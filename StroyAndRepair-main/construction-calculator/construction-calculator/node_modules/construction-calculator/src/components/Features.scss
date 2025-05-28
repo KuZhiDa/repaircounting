@@ -1,0 +1,174 @@
+@use '../assets/styles/_variables' as v;
+
+.features {
+  padding: 100px 0;
+  background: linear-gradient(45deg, v.$light 0%, #f8fbff 100%);
+  position: relative;
+  overflow: hidden;
+
+  .section-title {
+    text-align: center;
+    margin-bottom: 4rem;
+    font-size: 3.5rem;
+    color: v.$dark;
+    position: relative;
+    z-index: 1;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    position: relative;
+    z-index: 1;
+  }
+}
+
+.feature-card {
+  padding: 2.5rem;
+  border-radius: 1.5rem;
+  background: rgba(white, 0.9);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.05);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(v.$primary-color, 0.1);
+  cursor: pointer;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(v.$primary-color, 0.05));
+    transform: rotate(45deg);
+    z-index: 0;
+    transition: 0.6s;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+      circle at var(--x) var(--y),
+      rgba(v.$primary-color, 0.1),
+      transparent 60%
+    );
+    opacity: 0;
+    transition: opacity 0.4s;
+    pointer-events: none;
+  }
+
+  .feature-icon {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 1;
+    transition: all 0.4s;
+    filter: drop-shadow(0 4px 6px rgba(v.$primary-color, 0.2));
+    transform: translateZ(30px);
+  }
+
+  h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: v.$dark;
+    position: relative;
+    z-index: 1;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transform: translateZ(20px);
+  }
+
+  p {
+    color: rgba(v.$dark, 0.8);
+    line-height: 1.6;
+    position: relative;
+    z-index: 1;
+    transform: translateZ(15px);
+  }
+
+  .feature-wave {
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    background: url("data:image/svg+xml,%3Csvg viewBox='0 0 1440 320' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%232a5f7f' fill-opacity='0.05' d='M0,160L48,138.7C96,117,192,75,288,64C384,53,480,75,576,101.3C672,128,768,160,864,160C960,160,1056,128,1152,128C1248,128,1344,160,1392,176L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'/%3E%3C/svg%3E");
+    opacity: 0;
+    transition: opacity 0.3s;
+    animation: water 6s linear infinite;
+  }
+
+  &:hover {
+    box-shadow: 
+      0 12px 40px rgba(0,0,0,0.1),
+      0 0 80px rgba(v.$primary-color, 0.05);
+    transform: translateY(-10px) rotateZ(1deg) scale(1.02);
+    filter: brightness(1.05) saturate(1.1);
+    
+    .feature-icon {
+      transform: rotate(15deg) scale(1.15);
+      filter: drop-shadow(0 6px 8px rgba(v.$primary-color, 0.3));
+      animation: float 3s ease-in-out infinite;
+    }
+
+    &::before {
+      transform: rotate(65deg);
+    }
+
+    &::after {
+      opacity: 0.3;
+    }
+
+    .feature-wave {
+      opacity: 0.3;
+    }
+  }
+
+  &:active {
+    transform: translateY(-5px) scale(0.98);
+  }
+}
+
+@keyframes float {
+    0%, 100% { 
+      transform: translateY(-3px) rotate(15deg) scale(0.95) translateX(300px);
+    }
+    50% { 
+      transform: translateY(30px) rotate(25deg) scale(1) translateX(20px);
+    }
+  }
+
+@keyframes water {
+  0% { background-position: 0 0; }
+  100% { background-position: 100% 0; }
+}
+
+@media (max-width: 768px) {
+  .features {
+    padding: 4rem 0;
+    
+    .section-title {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+    }
+  }
+
+  .feature-card {
+    padding: 2rem;
+    
+    &:hover {
+      transform: translateY(-5px);
+    }
+  }
+}

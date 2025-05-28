@@ -1,0 +1,258 @@
+@use '../assets/styles/variables' as v;
+@use 'sass:color';
+
+.home {
+    padding-top: 90px; // Дефолтный отступ для десктопа
+    
+    @media (max-width: 768px) {
+      padding-top: 70px; // Отступ для мобильной версии
+    }
+  }
+
+// Hero Section
+.hero {
+
+    height: calc(100vh - 90px); // Учитываем высоту хедера
+    min-height: calc(800px - 90px);
+    
+    @media (max-width: 768px) {
+      height: calc(100vh - 70px);
+      min-height: calc(600px - 70px);
+    }
+
+    padding: 0;
+    height: 100vh;
+    min-height: 800px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(
+      45deg, 
+      color.adjust(v.$primary-color, $lightness: -15%) 0%, 
+      v.$primary-color 100%
+    );
+  
+    .container {
+      height: 100%;
+      max-width: 1600px;
+      margin: 0 auto;
+      padding: 0 40px;
+      position: relative;
+      z-index: 2;
+    }
+  
+    &__content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      height: 100%;
+      align-items: center;
+      color: white;
+    }
+  
+    &__text {
+      padding-left: 10%;
+      position: relative;
+      z-index: 3;
+    }
+  
+    h1 {
+      font-size: 4rem;
+      line-height: 1.1;
+      margin-bottom: 2rem;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.2);
+      max-width: 800px;
+      
+      .gradient-text {
+        background: linear-gradient(45deg, #fff, rgba(255,255,255,0.8));
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        -webkit-text-fill-color: transparent;
+      }
+    }
+
+  p {
+    font-size: 1.5rem;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 3rem;
+    line-height: 1.6;
+  }
+
+  &__cta {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  &__image {
+    position: relative;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    transform: translateZ(0);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    perspective: 1000px;
+    
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transform: rotateY(10deg) rotateX(5deg);
+      transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    &:hover img {
+      transform: rotateY(0) rotateX(0);
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(45deg, rgba(v.$primary-color, 0.1), transparent);
+    }
+  }
+
+  &__glow {
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 50% 50%, 
+      rgba(255,255,255,0.15) 0%, 
+      transparent 60%);
+    animation: glow-pulse 8s infinite;
+    pointer-events: none;
+  }
+
+  &__waves {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 200px;
+    z-index: 1;
+  }
+
+  .wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: 1000px 100px;
+    
+    &-1 {
+      background: url("data:image/svg+xml,%3Csvg viewBox='0 0 1440 320' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23ffffff' fill-opacity='0.1' d='M0,160L48,138.7C96,117,192,75,288,64C384,53,480,75,576,101.3C672,128,768,160,864,160C960,160,1056,128,1152,128C1248,128,1344,160,1392,176L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'/%3E%3C/svg%3E");
+      animation: wave 30s linear infinite;
+    }
+    
+    &-2 {
+      background: url("data:image/svg+xml,%3Csvg viewBox='0 0 1440 320' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23ffffff' fill-opacity='0.15' d='M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,138.7C960,139,1056,117,1152,122.7C1248,128,1344,160,1392,176L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'/%3E%3C/svg%3E");
+      animation: wave 20s linear infinite reverse;
+    }
+    
+    &-3 {
+      background: url("data:image/svg+xml,%3Csvg viewBox='0 0 1440 320' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23ffffff' fill-opacity='0.05' d='M0,192L48,170.7C96,149,192,107,288,122.7C384,139,480,213,576,218.7C672,224,768,160,864,128C960,96,1056,96,1152,117.3C1248,139,1344,181,1392,202.7L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'/%3E%3C/svg%3E");
+      animation: wave 25s linear infinite;
+    }
+  }
+
+  @keyframes glow-pulse {
+    0%, 100% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.2); opacity: 0.3; }
+  }
+
+  @keyframes wave {
+    0% { background-position-x: 0; }
+    100% { background-position-x: 1000px; }
+  }
+
+  @media (max-width: 992px) {
+    height: auto;
+    padding: 120px 0;
+
+    &__content {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 3rem;
+    }
+
+    &__image {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+  }
+
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 2.5rem;
+    }
+
+    p {
+      font-size: 1.2rem;
+    }
+  }
+}
+
+// Features Section
+.features-section {
+  padding: 100px 0;
+  background: white;
+
+  .section-title {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  @media (max-width: 768px) {
+    padding: 60px 0;
+  }
+}
+
+// Calculator Section
+.calculator-section {
+  padding: 100px 0;
+  background: v.$light;
+
+  .section-title {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  @media (max-width: 768px) {
+    padding: 60px 0;
+  }
+}
+
+// Materials Section
+.materials-section {
+  padding: 100px 0;
+  background: white;
+
+  .section-title {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  @media (max-width: 768px) {
+    padding: 60px 0;
+  }
+}
+
+// Responsive
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+    .features-section,
+    .calculator-section,
+    .materials-section {
+      padding-top: 40px !important;
+      padding-bottom: 40px !important;
+    }
+  }
